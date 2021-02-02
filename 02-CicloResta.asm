@@ -1,0 +1,6 @@
+	DW 0x03
+	LOAD [0x00]
+resta: SUB 0x01
+	JZ fin
+	JMP resta
+fin: 	LOAD 0xFF

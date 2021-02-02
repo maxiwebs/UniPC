@@ -1,4 +1,7 @@
 #!/usr/bin/python
+import sys
+
+programa = sys.argv[1]
 
 #Diccionario de instrucciones y sus respectivos codigos de operacion
 instrucciones_en_hexa = {
@@ -25,8 +28,8 @@ modos_direccionamiento = {
 
 
 #Definicion de archivos de entrada y salida
-programaEnAssembler = 'programa.asm'
-programaEnsamblado = 'programaEnsamblado.hex'
+programaEnAssembler = programa+'.asm'
+programaEnsamblado = programa+'.hex'
 
 
 #FUNCIONES AUXILIARES
@@ -135,6 +138,9 @@ for instruccion in programa_en_assembler.readlines():
 	print(instruccion_en_hexa)
 	programa_ensamblado.write(instruccion_en_hexa+"\n")
 
-
+#Agrego un "JMP sí mismo" como forma de "detener" la máquina
+instruccion_en_hexa = "80"+format(str_hex(dir_mem))
+programa_ensamblado.write(instruccion_en_hexa)
+print(instruccion_en_hexa)
 programa_en_assembler.close()
 programa_ensamblado.close()
