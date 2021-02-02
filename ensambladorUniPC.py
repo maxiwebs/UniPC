@@ -20,7 +20,7 @@ intrucciones_salto_en_hexa = {
 	"JZ" : "40"
 }
 
-#Modos de direccionamiento admintidos por la UniPC
+#Modos de direccionamiento admitidos por la UniPC
 modos_direccionamiento = {
 	"inmediato": "1",
 	"directo": "2"
@@ -138,7 +138,7 @@ for instruccion in programa_en_assembler.readlines():
 	print(instruccion_en_hexa)
 	programa_ensamblado.write(instruccion_en_hexa+"\n")
 
-#Agrego un "JMP sí mismo" como forma de "detener" la máquina
+#Al finalizar, agrego un "JMP a sí mismo" como forma de "detener" la máquina
 instruccion_en_hexa = "80"+format(str_hex(dir_mem))
 programa_ensamblado.write(instruccion_en_hexa)
 print(instruccion_en_hexa)
